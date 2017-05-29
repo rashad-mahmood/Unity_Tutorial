@@ -20,6 +20,7 @@ public class PlayerController : MonoBehaviour {
     public float fireRate;
     private float nextFire;
     private Rigidbody rb;
+    private AudioSource asrc;
 
 
     void Update()
@@ -28,6 +29,8 @@ public class PlayerController : MonoBehaviour {
         {
             nextFire = Time.time + fireRate;
             Instantiate(shot, shotSpawn.position, shotSpawn.rotation);
+            asrc = GetComponent<AudioSource>();
+            asrc.Play();
         }
     }
     // Update is called once per frame
